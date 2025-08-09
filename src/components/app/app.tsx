@@ -13,6 +13,7 @@ import styles from './app.module.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
+import { ProtectedRoute } from '../protected-route/protected-route';
 
 const App = () => (
   <div className={styles.app}>
@@ -21,11 +22,26 @@ const App = () => (
       <Routes>
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/feed' element={<Feed />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/forgot-password' element={<ForgotPassword />} />
-        <Route path='/reset-password' element={<ResetPassword />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route
+          path='/login'
+          element={<ProtectedRoute onlyUnAuth={true} component={<Login />} />}
+        />
+        <Route
+          path='/register'
+          element={<ProtectedRoute onlyUnAuth={true} component={<Register />} />}
+        />
+        <Route
+          path='/forgot-password'
+          element={<ProtectedRoute component={<ForgotPassword />} />}
+        />
+        <Route
+          path='/reset-password'
+          element={<ProtectedRoute component={<ResetPassword />} />}
+        />
+        <Route
+          path='/profile'
+          element={<ProtectedRoute component={<Profile />} />}
+        />
         <Route
           path='/feed/:number'
           element={

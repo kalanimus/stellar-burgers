@@ -17,7 +17,6 @@ export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(
         ingredient={ingredient}
         count={count}
         locationState={{ background: location }}
-        
         handleAdd={handleAdd}
       />
     );

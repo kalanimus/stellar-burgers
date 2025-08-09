@@ -8,7 +8,7 @@ import userReducer from './slices/userSlice';
 const rootReducer = combineReducers({
   burgerConstructor: constructorReducer,
   ingredients: ingredientsReducer,
-  user: userReducer,
+  user: userReducer
 });
 
 export default rootReducer;
