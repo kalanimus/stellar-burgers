@@ -14,14 +14,12 @@ const initialState: IngredientsState = {
   error: null
 };
 
-// Async thunk для загрузки ингредиентов
 export const fetchIngredients = createAsyncThunk(
   'ingredients/fetchIngredients',
   async () => await getIngredientsApi()
 );
 
-// Слайс
-const ingredientsSlice = createSlice({
+export const ingredientsSlice = createSlice({
   name: 'ingredients',
   initialState,
   reducers: {},
@@ -41,5 +39,3 @@ const ingredientsSlice = createSlice({
       });
   }
 });
-
-export default ingredientsSlice.reducer;

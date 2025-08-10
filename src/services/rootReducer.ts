@@ -1,14 +1,16 @@
-import { combineReducers } from '@reduxjs/toolkit';
+import { combineSlices } from '@reduxjs/toolkit';
+import { constructorSlice } from './slices/constructorSlice';
+import { ingredientsSlice } from './slices/ingredientsSlice';
+import { userSlice } from './slices/userSlice';
+import { orderSlice } from './slices/orderSlice';
+import { feedSlice } from './slices/feedSlice';
 
-// Импорты слайсов (добавите когда создадите)
-import constructorReducer from './slices/constructorSlice';
-import ingredientsReducer from './slices/ingredientsSlice';
-import userReducer from './slices/userSlice';
-
-const rootReducer = combineReducers({
-  burgerConstructor: constructorReducer,
-  ingredients: ingredientsReducer,
-  user: userReducer
-});
+const rootReducer = combineSlices(
+  constructorSlice,
+  ingredientsSlice,
+  userSlice,
+  orderSlice,
+  feedSlice
+);
 
 export default rootReducer;
