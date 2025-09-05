@@ -26,4 +26,17 @@ describe('rootReducer', () => {
       error: null
     });
   });
+
+  it('должен возвращать начальное состояние при неизвестном экшене', () => {
+  const state = rootReducer(undefined, { type: 'UNKNOWN_ACTION' });
+  
+  expect(state).toEqual({
+    burgerConstructor: { bun: null, ingredients: [] },
+    ingredients: { ingredients: [], loading: false, error: null },
+    user: { user: null, isAuthenticated: false, loading: true, orders: [] },
+    order: { order: null, orderRequest: false, orderModalData: null },
+    feed: { orders: [], total: 0, totalToday: 0, loading: false }
+  });
+});
+
 });
